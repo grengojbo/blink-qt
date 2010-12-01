@@ -1,4 +1,4 @@
-www/media/admin/
+localdata
 .idea/
 settings_local.py
 *.tar

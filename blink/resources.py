@@ -19,6 +19,7 @@ from collections import deque
 from hashlib import sha512
 from sipsimple.util import classproperty, makedirs
 
+PROJECT_ROOT = os.path.normpath(os.path.dirname(__file__))
 
 class DirectoryContextManager(unicode):
     def __enter__(self):
@@ -39,6 +40,8 @@ class ApplicationData(object):
             if platform.system() == 'Darwin':
                 from Foundation import NSApplicationSupportDirectory, NSSearchPathForDirectoriesInDomains, NSUserDomainMask
                 cls._cached_directory = os.path.join(NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, True)[0], u'Blink')
+            elif os.path.isdir(os.path.normpath(os.path.join(os.path.dirname(__file__), '../localdata')).decode(sys.getfilesystemencoding())):
+                cls._cached_directory = os.path.normpath(os.path.join(os.path.dirname(__file__), '../localdata')).decode(sys.getfilesystemencoding())
             elif platform.system() == 'Windows':
                 cls._cached_directory = os.path.join(os.environ['APPDATA'], 'Blink').decode(sys.getfilesystemencoding())
             else:
