@@ -1293,11 +1293,12 @@ class ContactModel(QAbstractListModel):
         except Exception:
             file = None
             icon_cache = IconCache()
-            group = ContactGroup('Test')
-            contacts = [Contact(group, 'Call Test', '3333@sip2sip.info', image=icon_cache.store(Resources.get('icons/3333@sip2sip.info.png'))),
-                        Contact(group, 'Echo Test', '4444@sip2sip.info', image=icon_cache.store(Resources.get('icons/4444@sip2sip.info.png'))),
-                        Contact(group, 'Audio Conference', 'conference@sip2sip.info', image=icon_cache.store(Resources.get('icons/conference@sip2sip.info.png'))),
-                        Contact(group, 'VUC Conference http://vuc.me', '200901@login.zipdx.com', image=icon_cache.store(Resources.get('icons/200901@login.zipdx.com.png')))]
+            group = ContactGroup('089.com.ua')
+            contacts = [Contact(group, 'Support', '0895001111', image=icon_cache.store(Resources.get('icons/advanced-settings.png'))),
+                        Contact(group, 'Call Test', '5000', image=icon_cache.store(Resources.get('icons/3333@sip2sip.info.png'))),
+                        Contact(group, 'Echo Test', '9196', image=icon_cache.store(Resources.get('icons/4444@sip2sip.info.png'))),
+#                        Contact(group, 'Audio Conference', 'conference@sip2sip.info', image=icon_cache.store(Resources.get('icons/conference@sip2sip.info.png'))),
+                        Contact(group, 'Hold Music', '9664', image=icon_cache.store(Resources.get('icons/bonjour.png')))]
             contacts.sort(key=attrgetter('name'))
             items = [group] + contacts
         self.beginResetModel()
@@ -1313,7 +1314,7 @@ class ContactModel(QAbstractListModel):
             if type(item) is GoogleContactsGroup:
                 self.google_contacts_group = item
         if self.bonjour_group is None:
-            self.bonjour_group = BonjourGroup('Bonjour Neighbours')
+            self.bonjour_group = BonjourGroup('My Contacts')
         if self.google_contacts_group is None:
             self.google_contacts_group = GoogleContactsGroup('Google Contacts')
         self.google_contacts_manager.initialize()
