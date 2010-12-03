@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # Copyright (C) 2010 AG Projects. See LICENSE for details.
 #
 
@@ -5,11 +6,11 @@ from __future__ import with_statement
 
 __all__ = ['PreferencesWindow', 'AccountListView', 'SIPPortEditor']
 
-import os
+import os, sys, locale
 import urlparse
 
 from PyQt4 import uic
-from PyQt4.QtCore import Qt, QRegExp, QVariant
+from PyQt4.QtCore import Qt, QRegExp, QVariant, QLocale
 from PyQt4.QtGui  import QActionGroup, QButtonGroup, QFileDialog, QListView, QListWidgetItem, QMessageBox, QRegExpValidator, QSpinBox, QStyle, QStyleOptionComboBox, QValidator
 
 from application import log
@@ -30,7 +31,14 @@ from blink.accounts import AddAccountDialog
 from blink.resources import ApplicationData, Resources
 from blink.logging import LogManager
 from blink.util import QSingleton, call_in_auxiliary_thread, call_in_gui_thread, run_in_auxiliary_thread, run_in_gui_thread
-
+import gettext
+import gettext_windows
+#lang = gettext_windows.get_language() # ['ru_UA.utf8']
+#translation = gettext.translation('blink', languages=lang)
+#_ = translation.gettext
+#gettext_windows.setup_env()
+#gettext.install('blink', unicode=True)
+#_ = gettext
 
 
 # LineEdit and ComboBox validators
@@ -147,7 +155,7 @@ class AccountListView(QListView):
             selection_model.setCurrentIndex(index, selection_model.Select)
 
 
-ui_class, base_class = uic.loadUiType(Resources.get('preferences.ui'))
+ui_class, base_class = uic.loadUiType(Resources.uic("preferences", gettext_windows.get_language()[0].split("_")[0]))
 
 class PreferencesWindow(base_class, ui_class):
     __metaclass__ = QSingleton
@@ -161,8 +169,8 @@ class PreferencesWindow(base_class, ui_class):
         with Resources.directory:
             self.setupUi()
 
-        self.setWindowTitle('Blink Preferences')
-        self.setWindowIconText('Blink Preferences')
+        self.setWindowTitle(self.tr('Blink Preferences'))
+        self.setWindowIconText(self.tr('Blink Preferences'))
 
         self.account_list.setModel(account_model)
         self.delete_account_button.setEnabled(False)
@@ -730,7 +738,7 @@ class PreferencesWindow(base_class, ui_class):
         selected_index = self.account_list.selectionModel().selectedIndexes()[0]
         selected_account = model.data(selected_index, Qt.UserRole).account
 
-        title, message = u"Remove Account", u"Permanently remove account %s?" % selected_account.id
+        title, message = self.tr("Remove Account"), self.tr("Permanently remove account %1?").arg(selected_account.id)
         if QMessageBox.question(self, title, message, QMessageBox.Ok|QMessageBox.Cancel) == QMessageBox.Cancel:
             return
 

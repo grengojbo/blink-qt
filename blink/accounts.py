@@ -31,7 +31,8 @@ from sipsimple.util import user_info
 from blink.resources import Resources
 from blink.widgets.labels import Status
 from blink.util import QSingleton, call_in_auxiliary_thread, call_in_gui_thread, run_in_auxiliary_thread, run_in_gui_thread
-
+import gettext, gettext_windows
+gettext_windows.setup_env()
 
 class AccountInfo(object):
     def __init__(self, account, icon=None):
@@ -378,11 +379,11 @@ class AddAccountDialog(base_class, ui_class):
         if not self.display_name_editor.text_valid:
             self.add_status_label.value = Status("Display name cannot be empty", color=red)
         elif not self.sip_address_editor.text_correct:
-            self.add_status_label.value = Status("SIP address should be specified as user@domain", color=red)
+            self.add_status_label.value = Status(u"SIP address should be specified as user@domain", color=red)
         elif not self.sip_address_editor.text_allowed:
-            self.add_status_label.value = Status("An account with this SIP address was already added", color=red)
+            self.add_status_label.value = Status(u"An account with this SIP address was already added", color=red)
         elif not self.password_editor.text_valid:
-            self.add_status_label.value = Status("Password cannot be empty", color=red)
+            self.add_status_label.value = Status(u"Password cannot be empty", color=red)
         else:
             self.add_status_label.value = None
         # validate the create panel

@@ -23,6 +23,9 @@
    <iconset>
     <normaloff>icons/blink48.png</normaloff>icons/blink48.png</iconset>
   </property>
+  <property name="locale">
+   <locale language="English" country="UnitedStates"/>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="window_layout">
     <property name="margin">
@@ -31,7 +34,7 @@
     <item row="0" column="0">
      <widget class="QStackedWidget" name="pages">
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="accounts_page">
        <layout class="QGridLayout" name="accounts_layout">
@@ -1556,6 +1559,14 @@
              </item>
              <item>
               <property name="text">
+               <string>iLBC</string>
+              </property>
+              <property name="checkState">
+               <enum>Checked</enum>
+              </property>
+             </item>
+             <item>
+              <property name="text">
                <string>speex</string>
               </property>
               <property name="checkState">
@@ -1567,22 +1578,6 @@
                <string>GSM</string>
               </property>
               <property name="checkState">
-               <enum>Unchecked</enum>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>iLBC</string>
-              </property>
-              <property name="checkState">
-               <enum>Unchecked</enum>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>PCMU</string>
-              </property>
-              <property name="checkState">
                <enum>Checked</enum>
               </property>
              </item>
@@ -1592,6 +1587,14 @@
               </property>
               <property name="checkState">
                <enum>Checked</enum>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>PCMU</string>
+              </property>
+              <property name="checkState">
+               <enum>Unchecked</enum>
               </property>
              </item>
             </widget>

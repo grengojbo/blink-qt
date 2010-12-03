@@ -80,6 +80,14 @@ class Resources(object):
     def get(cls, resource):
         return os.path.join(cls.directory, resource or u'')
 
+    @classmethod
+    def uic(cls, resource, lang):
+        uic_file = os.path.join(cls.directory, "%s_%s.ui" % (resource, lang))
+        if os.path.exists(uic_file):
+            return uic_file
+        else:
+            return os.path.join(cls.directory, "%s.ui" % resource)
+
 
 class FileInfo(object):
     def __init__(self, name):

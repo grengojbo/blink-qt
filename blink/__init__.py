@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # Copyright (C) 2010 AG Projects. See LICENSE for details.
 #
 
@@ -13,7 +14,7 @@ import sys
 from collections import defaultdict
 
 import cjson
-from PyQt4.QtCore import QThread
+from PyQt4.QtCore import QThread, QLocale, QTranslator
 from PyQt4.QtGui import QApplication
 from application import log
 from application.notification import IObserver, NotificationCenter
@@ -38,6 +39,10 @@ from blink.resources import ApplicationData
 from blink.sessions import SessionManager
 from blink.update import UpdateManager
 from blink.util import QSingleton, run_in_gui_thread
+import gettext
+import gettext_windows
+lang = gettext_windows.get_language()[0]
+log.error("lang: %s - %s" % (lang, QLocale.system().name()))
 
 
 class AuxiliaryThread(QThread):
@@ -67,8 +72,16 @@ class Blink(QApplication):
 
     def __init__(self):
         super(Blink, self).__init__(sys.argv)
+        translator = QTranslator()
+        translator.load("blink_%s" % gettext_windows.get_language()[0])
+        #translator.load("blink_ru.qm")
+#        if not loader:
+#            loader = translator.load("blink.qm")
+        self.installTranslator(translator)
+
         self.application = SIPApplication()
         self.auxiliary_thread = AuxiliaryThread()
+
         self.first_run = False
         self.main_window = MainWindow()
 

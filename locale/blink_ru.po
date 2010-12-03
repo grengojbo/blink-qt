@@ -1,0 +1,34 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: blink\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-12-02 22:23+0200\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Oleg Dolya <oleg.dolya@gmail.com>\n"
+"Language-Team:  <oleg.dolya@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Russian\n"
+"X-Poedit-Country: UKRAINE\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Language: ru_UA\n"
+
+#: blink/preferences.py:172
+#: blink/preferences.py:173
+msgid "Blink Preferences"
+msgstr "Blink Настройки"
+
+#: blink/preferences.py:741
+msgid "Remove Account"
+msgstr "Удаление Аккаунта"
+
+#: blink/preferences.py:741
+msgid "Permanently remove account %1?"
+msgstr "Вы действительно хотите удалить учетную запись %1?"
+
+#~ msgid "Display name cannot be empty"
+#~ msgstr "Отображаемое имя не может быть пустой строкой"
+#~ msgid "Password cannot be empty"
+#~ msgstr "Пароль не может быть пустой строкой"
+
