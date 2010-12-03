@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # Copyright (C) 2010 AG Projects. See LICENSE for details.
 #
 
@@ -31,8 +32,8 @@ from sipsimple.util import user_info
 from blink.resources import Resources
 from blink.widgets.labels import Status
 from blink.util import QSingleton, call_in_auxiliary_thread, call_in_gui_thread, run_in_auxiliary_thread, run_in_gui_thread
-import gettext, gettext_windows
-gettext_windows.setup_env()
+import gettext
+import gettext_windows
 
 class AccountInfo(object):
     def __init__(self, account, icon=None):
@@ -242,7 +243,7 @@ class AccountSelector(QComboBox):
             self.setCurrentIndex(model.mapFromSource(source_model.index(account_index)).row())
 
 
-ui_class, base_class = uic.loadUiType(Resources.get('add_account.ui'))
+ui_class, base_class = uic.loadUiType(Resources.uic("add_account", gettext_windows.get_language()[0].split("_")[0]))
 
 class AddAccountDialog(base_class, ui_class):
     __metaclass__ = QSingleton
@@ -258,6 +259,7 @@ class AddAccountDialog(base_class, ui_class):
         self.button_group.setObjectName("button_group")
         self.button_group.addButton(self.add_account_button, self.panel_view.indexOf(self.add_account_panel))
         self.button_group.addButton(self.create_account_button, self.panel_view.indexOf(self.create_account_panel))
+        self.button_group.addButton(self.create_start_account_button, self.panel_view.indexOf(self.create_start_account_panel))
         font = self.title_label.font()
         font.setPointSizeF(self.info_label.fontInfo().pointSizeF() + 3)
         font.setFamily("Sans Serif")
@@ -495,6 +497,13 @@ class AddAccountDialog(base_class, ui_class):
     def open_for_create(self):
         self.create_account_button.click()
         self.create_account_button.setFocus()
+        self.accept_button.setEnabled(False)
+        self._initialize()
+        self.show()
+
+    def open_for_start(self):
+        self.create_start_account_button.click()
+        self.create_start_account_button.setFocus()
         self.accept_button.setEnabled(False)
         self._initialize()
         self.show()

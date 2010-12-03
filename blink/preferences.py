@@ -661,6 +661,9 @@ class PreferencesWindow(base_class, ui_class):
     def show_create_account_dialog(self):
         self.add_account_dialog.open_for_create()
 
+    def show_start_account_dialog(self):
+        self.add_account_dialog.open_for_start()
+
     @staticmethod
     def _normalize_binary_size(size):
         """Return a human friendly string representation of size as a power of 2"""

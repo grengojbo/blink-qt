@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # Copyright (C) 2010 AG Projects. See LICENSE for details.
 #
 
@@ -54,7 +55,7 @@ class LogsSettingsExtension(LogsSettings):
 
 
 class RTPSettingsExtension(RTPSettings):
-    audio_codec_order = Setting(type=AudioCodecList, default=AudioCodecList(('G722', 'speex', 'GSM', 'iLBC', 'PCMU', 'PCMA')))
+    audio_codec_order = Setting(type=AudioCodecList, default=AudioCodecList(('G722', 'speex', 'GSM', 'iLBC', 'PCMA')))
 
 
 class ServerSettings(SettingsGroup):
