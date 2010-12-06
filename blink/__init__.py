@@ -5,7 +5,7 @@
 __all__ = ['Blink']
 
 
-__version__ = '0.2.2'
+__version__ = '0.2.2.2'
 __date__    = 'November 29th, 2010'
 
 
@@ -39,10 +39,9 @@ from blink.resources import ApplicationData
 from blink.sessions import SessionManager
 from blink.update import UpdateManager
 from blink.util import QSingleton, run_in_gui_thread
-import gettext
 import gettext_windows
-lang = gettext_windows.get_language()[0]
-log.error("lang: %s - %s" % (lang, QLocale.system().name()))
+LANG = gettext_windows.get_language()[0].split("_")[0]
+log.debug("lang: %s - %s" % (LANG, QLocale.system().name()))
 
 
 class AuxiliaryThread(QThread):
@@ -73,7 +72,7 @@ class Blink(QApplication):
     def __init__(self):
         super(Blink, self).__init__(sys.argv)
         translator = QTranslator()
-        translator.load("blink_%s" % gettext_windows.get_language()[0])
+        translator.load("blink_%s" % LANG)
         #translator.load("blink_ru.qm")
 #        if not loader:
 #            loader = translator.load("blink.qm")

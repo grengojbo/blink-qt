@@ -1,0 +1,1337 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>main_window</class>
+ <widget class="QMainWindow" name="main_window">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>285</width>
+    <height>550</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>285</width>
+    <height>550</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Blink</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>icons/blink48.png</normaloff>icons/blink48.png</iconset>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <property name="spacing">
+     <number>2</number>
+    </property>
+    <property name="margin">
+     <number>1</number>
+    </property>
+    <item>
+     <widget class="AccountSelector" name="identity">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="toolTip">
+       <string>Select the SIP account used for outbound calls</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="SearchBox" name="search_box">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>29</height>
+       </size>
+      </property>
+      <property name="inactiveText" stdset="0">
+       <string>Search Contacts or Enter Address</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="identity_layout">
+      <property name="spacing">
+       <number>2</number>
+      </property>
+      <property name="leftMargin">
+       <number>2</number>
+      </property>
+      <property name="rightMargin">
+       <number>1</number>
+      </property>
+      <item>
+       <widget class="QLabel" name="image">
+        <property name="minimumSize">
+         <size>
+          <width>36</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>36</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="toolTip">
+         <string>Click to change your picture</string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Sunken</enum>
+        </property>
+        <property name="pixmap">
+         <pixmap>icons/default-avatar.png</pixmap>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <layout class="QVBoxLayout" name="name_note_layout">
+        <property name="spacing">
+         <number>0</number>
+        </property>
+        <item>
+         <layout class="QHBoxLayout" name="name_status_layout">
+          <property name="spacing">
+           <number>4</number>
+          </property>
+          <item>
+           <widget class="LineEdit" name="display_name">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>18</height>
+             </size>
+            </property>
+            <property name="toolTip">
+             <string>Click to change your display name</string>
+            </property>
+            <property name="styleSheet">
+             <string>QLineEdit {
+	background-color: transparent;
+}
+</string>
+            </property>
+            <property name="frame">
+             <bool>false</bool>
+            </property>
+            <property name="inactiveText" stdset="0">
+             <string>Type your name here</string>
+            </property>
+            <property name="widgetSpacing" stdset="0">
+             <number>0</number>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="status">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>18</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>18</height>
+             </size>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>10</width>
+              <height>10</height>
+             </size>
+            </property>
+            <item>
+             <property name="text">
+              <string>Available</string>
+             </property>
+             <property name="icon">
+              <iconset>
+               <normaloff>icons/green-dot.svg</normaloff>icons/green-dot.svg</iconset>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Away</string>
+             </property>
+             <property name="icon">
+              <iconset>
+               <normaloff>icons/yellow-dot.svg</normaloff>icons/yellow-dot.svg</iconset>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Busy</string>
+             </property>
+             <property name="icon">
+              <iconset>
+               <normaloff>icons/red-dot.svg</normaloff>icons/red-dot.svg</iconset>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>On the phone</string>
+             </property>
+             <property name="icon">
+              <iconset>
+               <normaloff>icons/red-dot.svg</normaloff>icons/red-dot.svg</iconset>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Offline</string>
+             </property>
+             <property name="icon">
+              <iconset>
+               <normaloff>icons/grey-dot.svg</normaloff>icons/grey-dot.svg</iconset>
+             </property>
+            </item>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="LineEdit" name="activity_note">
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>18</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string>QLineEdit {
+	background-color: transparent;
+}
+</string>
+          </property>
+          <property name="frame">
+           <bool>false</bool>
+          </property>
+          <property name="inactiveText" stdset="0">
+           <string>Add an activity note here</string>
+          </property>
+          <property name="widgetSpacing" stdset="0">
+           <number>0</number>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="SwitchViewButton" name="switch_view_button">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::TabFocus</enum>
+      </property>
+      <property name="text">
+       <string>Switch to Calls</string>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>12</width>
+        <height>12</height>
+       </size>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QStackedWidget" name="main_view">
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="contacts_panel">
+       <layout class="QVBoxLayout" name="verticalLayout_8">
+        <property name="spacing">
+         <number>0</number>
+        </property>
+        <property name="margin">
+         <number>0</number>
+        </property>
+        <item>
+         <widget class="QStackedWidget" name="contacts_view">
+          <property name="currentIndex">
+           <number>0</number>
+          </property>
+          <widget class="QWidget" name="contact_list_panel">
+           <layout class="QVBoxLayout" name="verticalLayout_7">
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <property name="margin">
+             <number>0</number>
+            </property>
+            <item>
+             <widget class="ContactListView" name="contact_list">
+              <property name="horizontalScrollBarPolicy">
+               <enum>Qt::ScrollBarAlwaysOff</enum>
+              </property>
+              <property name="dragEnabled">
+               <bool>true</bool>
+              </property>
+              <property name="dragDropMode">
+               <enum>QAbstractItemView::DragDrop</enum>
+              </property>
+              <property name="alternatingRowColors">
+               <bool>true</bool>
+              </property>
+              <property name="selectionMode">
+               <enum>QAbstractItemView::ExtendedSelection</enum>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="search_panel">
+           <layout class="QVBoxLayout" name="verticalLayout_6">
+            <property name="spacing">
+             <number>2</number>
+            </property>
+            <property name="margin">
+             <number>0</number>
+            </property>
+            <item>
+             <layout class="QHBoxLayout" name="search_topbox_layout">
+              <property name="spacing">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
+              <item>
+               <spacer name="search_topbox_spacer_1">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <layout class="QVBoxLayout" name="search_topbuttons_layout">
+                <property name="spacing">
+                 <number>1</number>
+                </property>
+                <property name="topMargin">
+                 <number>3</number>
+                </property>
+                <property name="bottomMargin">
+                 <number>3</number>
+                </property>
+                <item>
+                 <widget class="QPushButton" name="back_to_contacts_button">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                  <property name="focusPolicy">
+                   <enum>Qt::TabFocus</enum>
+                  </property>
+                  <property name="text">
+                   <string>Back to contacts</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="add_search_contact_button">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                  <property name="focusPolicy">
+                   <enum>Qt::TabFocus</enum>
+                  </property>
+                  <property name="text">
+                   <string>Add contact</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <spacer name="search_topbox_spacer_2">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <widget class="QStackedWidget" name="search_view">
+              <property name="currentIndex">
+               <number>0</number>
+              </property>
+              <widget class="QWidget" name="search_list_panel">
+               <layout class="QVBoxLayout" name="verticalLayout_5">
+                <property name="spacing">
+                 <number>0</number>
+                </property>
+                <property name="margin">
+                 <number>0</number>
+                </property>
+                <item>
+                 <widget class="ContactSearchListView" name="search_list">
+                  <property name="dragEnabled">
+                   <bool>true</bool>
+                  </property>
+                  <property name="dragDropMode">
+                   <enum>QAbstractItemView::DragDrop</enum>
+                  </property>
+                  <property name="alternatingRowColors">
+                   <bool>true</bool>
+                  </property>
+                  <property name="selectionMode">
+                   <enum>QAbstractItemView::ExtendedSelection</enum>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+              <widget class="QWidget" name="not_found_panel">
+               <layout class="QVBoxLayout" name="verticalLayout_3">
+                <property name="spacing">
+                 <number>0</number>
+                </property>
+                <property name="margin">
+                 <number>0</number>
+                </property>
+                <item>
+                 <widget class="QLabel" name="not_found_label">
+                  <property name="text">
+                   <string>No matching contacts found.
+Press Return to start a call to
+the typed address, or use the
+buttons below.</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignCenter</set>
+                  </property>
+                  <property name="wordWrap">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="active_sessions_label">
+          <property name="font">
+           <font>
+            <family>Sans Serif</family>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string>background-color: #a0003a;
+border-style: outset;
+border-width: 1px;
+border-radius: 3px;
+border-color: #800040;
+color: white;
+margin-left: 1px;
+margin-right: 1px;
+padding: 2px;</string>
+          </property>
+          <property name="text">
+           <string>There are active calls</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="contact_buttonbox_layout">
+          <property name="spacing">
+           <number>0</number>
+          </property>
+          <property name="leftMargin">
+           <number>5</number>
+          </property>
+          <property name="topMargin">
+           <number>1</number>
+          </property>
+          <property name="rightMargin">
+           <number>5</number>
+          </property>
+          <property name="bottomMargin">
+           <number>3</number>
+          </property>
+          <item>
+           <widget class="QToolButton" name="add_contact_button">
+            <property name="minimumSize">
+             <size>
+              <width>29</width>
+              <height>24</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>29</width>
+              <height>24</height>
+             </size>
+            </property>
+            <property name="toolTip">
+             <string>Add a new contact</string>
+            </property>
+            <property name="text">
+             <string>+</string>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>icons/plus18.svg</normaloff>icons/plus18.svg</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>18</width>
+              <height>18</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="button_box_spacer_1">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="dial_buttons_layout">
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <item>
+             <widget class="QToolButton" name="audio_call_button">
+              <property name="minimumSize">
+               <size>
+                <width>29</width>
+                <height>24</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>29</width>
+                <height>24</height>
+               </size>
+              </property>
+              <property name="toolTip">
+               <string>Make an audio call</string>
+              </property>
+              <property name="icon">
+               <iconset>
+                <normaloff>icons/green-handset.png</normaloff>icons/green-handset.png</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>18</width>
+                <height>18</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="ToolButton" name="im_session_button">
+              <property name="minimumSize">
+               <size>
+                <width>29</width>
+                <height>24</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>29</width>
+                <height>24</height>
+               </size>
+              </property>
+              <property name="toolTip">
+               <string>Start a chat session or send an SMS</string>
+              </property>
+              <property name="text">
+               <string>IM</string>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>18</width>
+                <height>18</height>
+               </size>
+              </property>
+              <property name="popupMode">
+               <enum>QToolButton::InstantPopup</enum>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="ToolButton" name="ds_session_button">
+              <property name="minimumSize">
+               <size>
+                <width>29</width>
+                <height>24</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>29</width>
+                <height>24</height>
+               </size>
+              </property>
+              <property name="toolTip">
+               <string>Start desktop sharing </string>
+              </property>
+              <property name="icon">
+               <iconset>
+                <normaloff>icons/display18.png</normaloff>icons/display18.png</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>18</width>
+                <height>18</height>
+               </size>
+              </property>
+              <property name="popupMode">
+               <enum>QToolButton::InstantPopup</enum>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <spacer name="button_box_spacer_2">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QToolButton" name="silent_button">
+            <property name="minimumSize">
+             <size>
+              <width>29</width>
+              <height>24</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>29</width>
+              <height>24</height>
+             </size>
+            </property>
+            <property name="toolTip">
+             <string>Disable ringtones (silent mode)</string>
+            </property>
+            <property name="text">
+             <string>M</string>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>icons/bell-on.png</normaloff>
+              <normalon>icons/bell-off.png</normalon>icons/bell-on.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>18</width>
+              <height>18</height>
+             </size>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="sessions_panel">
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <property name="spacing">
+         <number>0</number>
+        </property>
+        <property name="margin">
+         <number>0</number>
+        </property>
+        <item>
+         <widget class="SessionListView" name="session_list">
+          <property name="horizontalScrollBarPolicy">
+           <enum>Qt::ScrollBarAlwaysOff</enum>
+          </property>
+          <property name="dragEnabled">
+           <bool>true</bool>
+          </property>
+          <property name="dragDropMode">
+           <enum>QAbstractItemView::DragDrop</enum>
+          </property>
+          <property name="verticalScrollMode">
+           <enum>QAbstractItemView::ScrollPerPixel</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="session_buttons_layout">
+          <property name="spacing">
+           <number>5</number>
+          </property>
+          <property name="leftMargin">
+           <number>5</number>
+          </property>
+          <property name="topMargin">
+           <number>1</number>
+          </property>
+          <property name="rightMargin">
+           <number>5</number>
+          </property>
+          <property name="bottomMargin">
+           <number>3</number>
+          </property>
+          <item>
+           <widget class="QPushButton" name="hangup_all_button">
+            <property name="minimumSize">
+             <size>
+              <width>85</width>
+              <height>24</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>24</height>
+             </size>
+            </property>
+            <property name="focusPolicy">
+             <enum>Qt::TabFocus</enum>
+            </property>
+            <property name="text">
+             <string>Hangup all</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="ConferenceButton" name="conference_button">
+            <property name="minimumSize">
+             <size>
+              <width>85</width>
+              <height>24</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>24</height>
+             </size>
+            </property>
+            <property name="focusPolicy">
+             <enum>Qt::TabFocus</enum>
+            </property>
+            <property name="text">
+             <string>Conference</string>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
+            <property name="popupMode">
+             <enum>QToolButton::InstantPopup</enum>
+            </property>
+            <property name="toolButtonStyle">
+             <enum>Qt::ToolButtonTextOnly</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="session_buttons_spacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QToolButton" name="mute_button">
+            <property name="minimumSize">
+             <size>
+              <width>29</width>
+              <height>24</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>29</width>
+              <height>24</height>
+             </size>
+            </property>
+            <property name="toolTip">
+             <string>Mute microphone</string>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>icons/mic-on.png</normaloff>
+              <normalon>icons/mic-off.png</normalon>icons/mic-on.png</iconset>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>285</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="blink_menu">
+    <property name="title">
+     <string>&amp;Blink</string>
+    </property>
+    <widget class="QMenu" name="accounts_menu">
+     <property name="title">
+      <string>Учетные записи</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>icons/default-avatar.png</normaloff>icons/default-avatar.png</iconset>
+     </property>
+     <addaction name="add_account_action"/>
+     <addaction name="manage_accounts_action"/>
+     <addaction name="separator"/>
+    </widget>
+    <widget class="QMenu" name="quick_settings_menu">
+     <property name="title">
+      <string>Быстрые настройки</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>icons/quick-settings.png</normaloff>icons/quick-settings.png</iconset>
+     </property>
+     <addaction name="auto_accept_chat_action"/>
+     <addaction name="auto_accept_files_action"/>
+    </widget>
+    <addaction name="about_action"/>
+    <addaction name="check_for_updates_action"/>
+    <addaction name="donate_action"/>
+    <addaction name="separator"/>
+    <addaction name="preferences_action"/>
+    <addaction name="quick_settings_menu"/>
+    <addaction name="accounts_menu"/>
+    <addaction name="separator"/>
+    <addaction name="help_action"/>
+    <addaction name="release_notes_action"/>
+    <addaction name="separator"/>
+    <addaction name="quit_action"/>
+   </widget>
+   <widget class="QMenu" name="history_menu">
+    <property name="title">
+     <string>История</string>
+    </property>
+    <widget class="QMenu" name="voicemail_menu">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="title">
+      <string>Голосовая почта</string>
+     </property>
+    </widget>
+    <widget class="QMenu" name="missed_calls_menu">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="title">
+      <string>&amp;Missed calls</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>icons/missed-calls.png</normaloff>icons/missed-calls.png</iconset>
+     </property>
+    </widget>
+    <widget class="QMenu" name="placed_calls_menu">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="title">
+      <string>&amp;Placed calls</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>icons/placed-calls.png</normaloff>icons/placed-calls.png</iconset>
+     </property>
+    </widget>
+    <widget class="QMenu" name="received_calls_menu">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="title">
+      <string>&amp;Received calls</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>icons/received-calls.png</normaloff>icons/received-calls.png</iconset>
+     </property>
+    </widget>
+    <addaction name="redial_action"/>
+    <addaction name="history_action"/>
+    <addaction name="separator"/>
+    <addaction name="voicemail_menu"/>
+    <addaction name="missed_calls_menu"/>
+    <addaction name="placed_calls_menu"/>
+    <addaction name="received_calls_menu"/>
+   </widget>
+   <widget class="QMenu" name="audio_menu">
+    <property name="title">
+     <string>Аудио</string>
+    </property>
+    <widget class="QMenu" name="output_device_menu">
+     <property name="title">
+      <string>Динамики</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>icons/speaker.png</normaloff>icons/speaker.png</iconset>
+     </property>
+    </widget>
+    <widget class="QMenu" name="input_device_menu">
+     <property name="title">
+      <string>Микрофон</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>icons/mic.png</normaloff>icons/mic.png</iconset>
+     </property>
+    </widget>
+    <widget class="QMenu" name="alert_device_menu">
+     <property name="title">
+      <string>Оповещение</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>icons/bell.png</normaloff>icons/bell.png</iconset>
+     </property>
+    </widget>
+    <addaction name="mute_action"/>
+    <addaction name="silent_action"/>
+    <addaction name="separator"/>
+    <addaction name="output_device_menu"/>
+    <addaction name="input_device_menu"/>
+    <addaction name="alert_device_menu"/>
+   </widget>
+   <widget class="QMenu" name="tools_menu">
+    <property name="title">
+     <string>Утилиты</string>
+    </property>
+    <addaction name="answering_machine_action"/>
+    <addaction name="google_contacts_action"/>
+    <addaction name="separator"/>
+    <addaction name="sip_server_settings_action"/>
+    <addaction name="search_for_people_action"/>
+    <addaction name="history_on_server_action"/>
+    <addaction name="buy_pstn_access_action"/>
+    <addaction name="separator"/>
+    <addaction name="file_transfers_action"/>
+    <addaction name="logs_action"/>
+   </widget>
+   <addaction name="blink_menu"/>
+   <addaction name="audio_menu"/>
+   <addaction name="history_menu"/>
+   <addaction name="tools_menu"/>
+  </widget>
+  <action name="quit_action">
+   <property name="icon">
+    <iconset>
+     <normaloff>icons/application-exit.png</normaloff>icons/application-exit.png</iconset>
+   </property>
+   <property name="text">
+    <string>Выход</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+   <property name="shortcutContext">
+    <enum>Qt::ApplicationShortcut</enum>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::QuitRole</enum>
+   </property>
+  </action>
+  <action name="about_action">
+   <property name="icon">
+    <iconset>
+     <normaloff>icons/blink48.png</normaloff>icons/blink48.png</iconset>
+   </property>
+   <property name="text">
+    <string>О &amp;Blink</string>
+   </property>
+   <property name="shortcutContext">
+    <enum>Qt::ApplicationShortcut</enum>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::AboutRole</enum>
+   </property>
+  </action>
+  <action name="preferences_action">
+   <property name="icon">
+    <iconset>
+     <normaloff>icons/configure.png</normaloff>icons/configure.png</iconset>
+   </property>
+   <property name="text">
+    <string>Настройки...</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+P</string>
+   </property>
+   <property name="shortcutContext">
+    <enum>Qt::ApplicationShortcut</enum>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::PreferencesRole</enum>
+   </property>
+  </action>
+  <action name="check_for_updates_action">
+   <property name="text">
+    <string>Проверить обновления...</string>
+   </property>
+  </action>
+  <action name="logs_action">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Logs</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+L</string>
+   </property>
+   <property name="shortcutContext">
+    <enum>Qt::ApplicationShortcut</enum>
+   </property>
+  </action>
+  <action name="file_transfers_action">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>&amp;File transfers</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+T</string>
+   </property>
+   <property name="shortcutContext">
+    <enum>Qt::ApplicationShortcut</enum>
+   </property>
+  </action>
+  <action name="answering_machine_action">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Enable &amp;Answering Machine</string>
+   </property>
+  </action>
+  <action name="sip_server_settings_action">
+   <property name="text">
+    <string>&amp;Settings on SIP server...</string>
+   </property>
+  </action>
+  <action name="redial_action">
+   <property name="text">
+    <string>Re&amp;dial</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+R</string>
+   </property>
+   <property name="shortcutContext">
+    <enum>Qt::ApplicationShortcut</enum>
+   </property>
+  </action>
+  <action name="mute_action">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Отключить микрофон</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+M</string>
+   </property>
+   <property name="shortcutContext">
+    <enum>Qt::ApplicationShortcut</enum>
+   </property>
+  </action>
+  <action name="silent_action">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Отключить динамик</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+   <property name="shortcutContext">
+    <enum>Qt::ApplicationShortcut</enum>
+   </property>
+  </action>
+  <action name="search_for_people_action">
+   <property name="text">
+    <string>Search for &amp;people...</string>
+   </property>
+  </action>
+  <action name="auto_accept_chat_action">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Auto-accept &amp;chat from my contacts</string>
+   </property>
+  </action>
+  <action name="auto_accept_files_action">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Auto-accept &amp;files from my contacts</string>
+   </property>
+  </action>
+  <action name="add_account_action">
+   <property name="text">
+    <string>Добавить...</string>
+   </property>
+  </action>
+  <action name="help_action">
+   <property name="text">
+    <string>Blink помощь</string>
+   </property>
+   <property name="shortcut">
+    <string>F1</string>
+   </property>
+   <property name="shortcutContext">
+    <enum>Qt::ApplicationShortcut</enum>
+   </property>
+  </action>
+  <action name="release_notes_action">
+   <property name="text">
+    <string>&amp;Release notes</string>
+   </property>
+  </action>
+  <action name="history_action">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Sessions</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+H</string>
+   </property>
+   <property name="shortcutContext">
+    <enum>Qt::ApplicationShortcut</enum>
+   </property>
+  </action>
+  <action name="manage_accounts_action">
+   <property name="text">
+    <string>Изменить...</string>
+   </property>
+  </action>
+  <action name="donate_action">
+   <property name="text">
+    <string>Пожертвуйте, если вам нравится Blink</string>
+   </property>
+  </action>
+  <action name="google_contacts_action">
+   <property name="text">
+    <string>Импорт контактов Google</string>
+   </property>
+  </action>
+  <action name="history_on_server_action">
+   <property name="text">
+    <string>Call history on server...</string>
+   </property>
+  </action>
+  <action name="buy_pstn_access_action">
+   <property name="text">
+    <string>Buy prepaid credit...</string>
+   </property>
+  </action>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>LineEdit</class>
+   <extends>QLineEdit</extends>
+   <header>blink.widgets.lineedit</header>
+  </customwidget>
+  <customwidget>
+   <class>SearchBox</class>
+   <extends>QLineEdit</extends>
+   <header>blink.widgets.lineedit</header>
+  </customwidget>
+  <customwidget>
+   <class>ContactListView</class>
+   <extends>QListView</extends>
+   <header>blink.contacts</header>
+  </customwidget>
+  <customwidget>
+   <class>ContactSearchListView</class>
+   <extends>QListView</extends>
+   <header>blink.contacts</header>
+  </customwidget>
+  <customwidget>
+   <class>AccountSelector</class>
+   <extends>QComboBox</extends>
+   <header>blink.accounts</header>
+  </customwidget>
+  <customwidget>
+   <class>ToolButton</class>
+   <extends>QToolButton</extends>
+   <header>blink.widgets.buttons</header>
+  </customwidget>
+  <customwidget>
+   <class>SessionListView</class>
+   <extends>QListView</extends>
+   <header>blink.sessions</header>
+  </customwidget>
+  <customwidget>
+   <class>SwitchViewButton</class>
+   <extends>QPushButton</extends>
+   <header>blink.widgets.buttons</header>
+  </customwidget>
+  <customwidget>
+   <class>ConferenceButton</class>
+   <extends>QToolButton</extends>
+   <header>blink.widgets.buttons</header>
+  </customwidget>
+ </customwidgets>
+ <tabstops>
+  <tabstop>search_box</tabstop>
+  <tabstop>search_list</tabstop>
+  <tabstop>activity_note</tabstop>
+  <tabstop>status</tabstop>
+  <tabstop>display_name</tabstop>
+  <tabstop>switch_view_button</tabstop>
+  <tabstop>contact_list</tabstop>
+  <tabstop>back_to_contacts_button</tabstop>
+  <tabstop>add_search_contact_button</tabstop>
+  <tabstop>identity</tabstop>
+  <tabstop>add_contact_button</tabstop>
+  <tabstop>audio_call_button</tabstop>
+  <tabstop>im_session_button</tabstop>
+  <tabstop>ds_session_button</tabstop>
+  <tabstop>silent_button</tabstop>
+  <tabstop>session_list</tabstop>
+  <tabstop>hangup_all_button</tabstop>
+  <tabstop>conference_button</tabstop>
+  <tabstop>mute_button</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>

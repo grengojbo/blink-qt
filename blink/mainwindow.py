@@ -30,9 +30,10 @@ from blink.configuration.datatypes import InvalidToken
 from blink.resources import Resources
 from blink.util import call_in_auxiliary_thread, run_in_gui_thread
 from blink.widgets.buttons import SwitchViewButton
+import gettext_windows
 
 
-ui_class, base_class = uic.loadUiType(Resources.get('blink.ui'))
+ui_class, base_class = uic.loadUiType(Resources.uic('blink', gettext_windows.get_language()[0].split("_")[0]))
 
 class MainWindow(base_class, ui_class):
     implements(IObserver)

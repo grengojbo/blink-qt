@@ -1,0 +1,2 @@
+https://github.com/mojodna/oauth-proxy.git
+https://github.com/simplegeo/python-oauth2.git
